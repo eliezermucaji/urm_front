@@ -123,23 +123,23 @@
 <p class="font-label-sm text-label-sm text-on-surface-variant">Scholar-Architect</p>
 </div>
 </div>
-<nav class="flex-1 px-4 space-y-1">
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors group" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-label-sm text-label-sm">Dashboard</span>
+<nav class="flex-grow flex flex-col gap-1 px-4">
+<!-- Active State: Dashboard -->
+<a class="relative bg-surface-container text-on-surface border-l-4 border-secondary-container px-4 py-3 flex items-center gap-3 rounded-r-lg group transition-all active:scale-95 duration-150 ease-in-out" href="/">
+<span class="material-symbols-outlined text-secondary" data-icon="dashboard">dashboard</span>
+<span class="font-body-md font-medium">Dashboard</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors group" href="#">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/editor">
 <span class="material-symbols-outlined" data-icon="code">code</span>
-<span class="font-label-sm text-label-sm">Editor</span>
+<span class="font-body-md">Editor</span>
 </a>
-<!-- Active State: Education -->
-<a class="relative flex items-center gap-3 px-4 py-3 rounded-lg bg-surface-container text-on-surface border-l-4 border-secondary-container transition-all" href="#">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/educacao">
 <span class="material-symbols-outlined" data-icon="school">school</span>
-<span class="font-label-sm text-label-sm font-semibold">Education</span>
+<span class="font-body-md">Educação</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors group" href="#">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/comparacao">
 <span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
-<span class="font-label-sm text-label-sm">Comparison</span>
+<span class="font-body-md">Comparação</span>
 </a>
 </nav>
 <div class="px-4 mt-auto space-y-1 border-t border-outline-variant pt-6">
@@ -344,6 +344,6 @@ J(2,4,1)" spellcheck="false"></textarea>
             if (e.key === 'Escape') closeModal();
         });
     </script>
-<script src="http://127.0.0.1:300/socket.io/socket.io.js"></script>
+<script src="https://urm-back.onrender.com/socket.io/socket.io.js"></script>
 <script src="./configs/sockets/notifications.js"></script>
 </body></html>

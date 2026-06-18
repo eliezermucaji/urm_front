@@ -226,22 +226,23 @@
 <p class="font-label-sm text-label-sm text-on-surface-variant/70">Scholar-Architect</p>
 </div>
 </div>
-<nav class="flex-1 space-y-1 px-4">
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-label-sm text-label-sm">Dashboard</span>
+<nav class="flex-grow flex flex-col gap-1 px-4">
+<!-- Active State: Dashboard -->
+<a class="relative bg-surface-container text-on-surface border-l-4 border-secondary-container px-4 py-3 flex items-center gap-3 rounded-r-lg group transition-all active:scale-95 duration-150 ease-in-out" href="/">
+<span class="material-symbols-outlined text-secondary" data-icon="dashboard">dashboard</span>
+<span class="font-body-md font-medium">Dashboard</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg relative bg-surface-container dark:bg-surface-container-highest text-on-surface dark:text-inverse-on-surface border-l-4 border-secondary-container sidebar-active-indicator" href="#">
-<span class="material-symbols-outlined" data-icon="code" style="font-variation-settings: 'FILL' 1;">code</span>
-<span class="font-label-sm text-label-sm font-semibold">Editor</span>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/editor">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-body-md">Editor</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/educacao">
 <span class="material-symbols-outlined" data-icon="school">school</span>
-<span class="font-label-sm text-label-sm">Education</span>
+<span class="font-body-md">Educação</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/comparacao">
 <span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
-<span class="font-label-sm text-label-sm">Comparison</span>
+<span class="font-body-md">Comparação</span>
 </a>
 </nav>
 <div class="mt-auto px-4 space-y-1">
@@ -453,6 +454,6 @@ T(0, 0)</textarea>
 </div>
 
 <script src="./configs/controllers/urm_compiler.js"></script>
-<script src="http://127.0.0.1:3001/socket.io/socket.io.js"></script>
+<script src="https://urm-back.onrender.com/socket.io/socket.io.js"></script>
 <script src="./configs/sockets/notifications.js"></script>
 </body></html>

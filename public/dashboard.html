@@ -141,21 +141,21 @@
 </div>
 <nav class="flex-grow flex flex-col gap-1 px-4">
 <!-- Active State: Dashboard -->
-<a class="relative bg-surface-container text-on-surface border-l-4 border-secondary-container px-4 py-3 flex items-center gap-3 rounded-r-lg group transition-all active:scale-95 duration-150 ease-in-out" href="#">
+<a class="relative bg-surface-container text-on-surface border-l-4 border-secondary-container px-4 py-3 flex items-center gap-3 rounded-r-lg group transition-all active:scale-95 duration-150 ease-in-out" href="/">
 <span class="material-symbols-outlined text-secondary" data-icon="dashboard">dashboard</span>
 <span class="font-body-md font-medium">Dashboard</span>
 </a>
-<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="#">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/editor">
 <span class="material-symbols-outlined" data-icon="code">code</span>
 <span class="font-body-md">Editor</span>
 </a>
-<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="#">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/educacao">
 <span class="material-symbols-outlined" data-icon="school">school</span>
-<span class="font-body-md">Education</span>
+<span class="font-body-md">Educação</span>
 </a>
-<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="#">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-3 flex items-center gap-3 rounded-lg group" href="/comparacao">
 <span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
-<span class="font-body-md">Comparison</span>
+<span class="font-body-md">Comparação</span>
 </a>
 </nav>
 <div class="mt-auto px-4 pb-4"><button class="w-full bg-secondary text-white py-3 rounded-xl font-medium shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2"><span class="material-symbols-outlined" data-icon="add">add</span>Nova Simulação</button></div></aside>
@@ -492,6 +492,6 @@
         searchInput.parentElement.classList.remove('ring-2', 'ring-secondary-container');
     });
 </script>
-<script src="http://127.0.0.1:3001/socket.io/socket.io.js"></script>
+<script src="https://urm-back.onrender.com/socket.io/socket.io.js"></script>
 <script src="./configs/sockets/notifications.js"></script>
 </body></html>

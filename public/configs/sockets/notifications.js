@@ -1,4 +1,4 @@
-const socket = io('http://127.0.0.1:3001')
+const socket = io('https://urm-back.onrender.com')
 
     function mostrarNotificacao({notification_type, id}) {
         const div = document.createElement("div");
