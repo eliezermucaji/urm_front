@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Education - URM Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Hanken+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e2e2e2",
+                    "on-tertiary-container": "#747676",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#d8e3fb",
+                    "surface-dim": "#cfdaf2",
+                    "on-primary-fixed": "#1a1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "surface-tint": "#5d5f5f",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "primary-container": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d8e3fb",
+                    "outline-variant": "#c4c7c8",
+                    "secondary-container": "#3ee5fe",
+                    "background": "#f9f9ff",
+                    "on-surface": "#111c2d",
+                    "on-secondary-fixed": "#001f24",
+                    "secondary-fixed": "#9eefff",
+                    "secondary-fixed-dim": "#28d9f3",
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-primary-container": "#747676",
+                    "inverse-primary": "#c6c6c7",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "primary": "#5d5f5f",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#e2e2e2",
+                    "secondary": "#006876",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-container-low": "#f0f3ff",
+                    "tertiary": "#5d5f5f",
+                    "on-primary-fixed-variant": "#454747",
+                    "inverse-surface": "#263143",
+                    "surface-container-high": "#dee8ff",
+                    "on-background": "#111c2d",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#006370",
+                    "surface-bright": "#f9f9ff",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "surface": "#f9f9ff",
+                    "on-secondary": "#ffffff",
+                    "outline": "#747878"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sidebar-width": "260px",
+                    "gutter": "16px",
+                    "card-gap": "12px",
+                    "canvas-padding": "32px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "code-instruction": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "register-value": ["JetBrains Mono"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "code-instruction": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "register-value": ["20px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .instruction-z { border-left: 4px solid #94a3b8; }
+        .instruction-s { border-left: 4px solid #0ea5e9; }
+        .instruction-t { border-left: 4px solid #8b5cf6; }
+        .instruction-j { border-left: 4px solid #f43f5e; }
+        
+        body {
+            background-color: #f9f9ff;
+            color: #111c2d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .custom-shadow {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+        }
+    </style>
+</head>
+<body class="bg-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[260px] z-40 bg-surface-container-lowest border-r border-outline-variant shadow-sm flex flex-col py-canvas-padding">
+<div class="px-6 mb-10">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface">URM Studio</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Scholar-Architect</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="group flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+                Dashboard
+            </a>
+<a class="group flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mr-3">code</span>
+                Editor
+            </a>
+<a class="group flex items-center px-6 py-3 relative bg-surface-container text-on-surface border-l-4 border-secondary-container font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mr-3">school</span>
+                Education
+            </a>
+<a class="group flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mr-3">compare_arrows</span>
+                Comparison
+            </a>
+</nav>
+<div class="mt-auto px-6 space-y-4">
+<button class="w-full bg-secondary text-white py-3 rounded-lg font-label-sm text-label-sm hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Simulation
+            </button>
+<div class="pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center py-2 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mr-3">person</span>
+                    Profile
+                </a>
+<a class="flex items-center py-2 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+                    Settings
+                </a>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-[260px] h-16 z-30 bg-surface/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-gutter w-full">
+<div class="flex items-center bg-surface-container-low rounded-full px-4 py-1.5 w-96">
+<span class="material-symbols-outlined text-on-surface-variant text-xl mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-full p-0 h-auto" placeholder="Search lessons..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Scholar Avatar" data-alt="A stylized digital avatar of a sophisticated scholar wearing modern glasses and a neutral academic outfit. The art style is clean, vector-based, and friendly, consistent with a high-end educational platform's professional aesthetic. The lighting is bright and even, set against a soft pale blue background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmbndhnuHi5KQwyKbO3JhOL0JsIXJAPAAE7RNuC9bpaLJiQB7QZ3dmHUn7f9OkRNAG-cfFCSJvtGFDbgR3mTj-HdgVKkZk8VQgWTtN4Vaqb4GdawXKg5fuspnqtiFXBUkMMIpDRD99qbeYZfpzVI8AqdRWTYMfoNT4EHuHbvk2pUP7dACDWBqEBvZtQmKgQbRBOGTltkX3DW3dhTfs8dsEuxbmUzJiaWHmQ8q4pHXtVTXEZFHfMrPaWSo1sU6-fBNp2SjeB38XN8I"/>
+</div>
+<button class="bg-secondary text-white px-4 py-2 rounded-lg font-label-sm text-label-sm hover:brightness-110 transition-all">
+                New Program
+            </button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen p-canvas-padding">
+<div class="max-w-6xl mx-auto space-y-12">
+<!-- Hero Header -->
+<section class="space-y-4">
+<div class="inline-flex items-center gap-2 bg-secondary-container/20 text-secondary px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm">Curriculum: Scholar-Architect</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Universal Register Machine Mastery</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl leading-relaxed">
+                    Welcome to the URM Academy. Master the fundamental concepts of computational theory through interactive simulations and precise architectural visualization.
+                </p>
+</section>
+<!-- Learning Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group bg-white p-6 rounded-xl custom-shadow border border-outline-variant hover:border-secondary transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-secondary text-2xl">memory</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">O que é a Máquina URM?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Learn the theoretical foundations of registers and infinite tape processing.</p>
+<div class="flex items-center text-secondary font-label-sm text-label-sm">
+                        Start Module <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white p-6 rounded-xl custom-shadow border border-outline-variant hover:border-secondary transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-secondary text-2xl">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Instruções Básicas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Master Zero (Z), Successor (S), Transfer (T), and Jump (J) commands.</p>
+<div class="flex items-center text-secondary font-label-sm text-label-sm">
+                        4 Lessons Left <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white p-6 rounded-xl custom-shadow border border-outline-variant hover:border-secondary transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-secondary text-2xl">account_tree</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Algoritmos Comuns</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Building logic: from simple addition to complex recursive functions.</p>
+<div class="flex items-center text-secondary font-label-sm text-label-sm">
+                        Explore Library <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- Example Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md">Algoritmos Interativos</h3>
+<div class="flex gap-2">
+<button class="p-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Soma Example -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden flex flex-col custom-shadow">
+<div class="p-6 border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<div>
+<h4 class="font-headline-md text-headline-md">Operação: Soma (Addition)</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">R1 = R1 + R2</p>
+</div>
+<span class="px-3 py-1 bg-secondary text-white rounded text-[10px] font-bold uppercase tracking-widest">Level 1</span>
+</div>
+<div class="p-8 flex-1">
+<!-- Visual Data Flow Diagram -->
+<div class="relative h-48 bg-background rounded-lg border border-dashed border-outline p-6 flex items-center justify-around mb-8">
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-white border border-secondary rounded flex items-center justify-center font-register-value text-register-value shadow-sm">3</div>
+<span class="font-label-sm text-label-sm">R1</span>
+</div>
+<div class="relative flex items-center group">
+<div class="w-12 h-1 w-20 bg-secondary/30 relative">
+<div class="absolute inset-0 bg-secondary animate-[pulse_2s_infinite] w-0 group-hover:w-full transition-all"></div>
+</div>
+<span class="material-symbols-outlined absolute -right-4 text-secondary">arrow_forward</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-white border border-outline-variant rounded flex items-center justify-center font-register-value text-register-value shadow-sm">2</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">R2</span>
+</div>
+<div class="absolute top-4 right-4 bg-white px-2 py-1 rounded text-[10px] border border-outline-variant text-on-surface-variant">FLOW: S(1) &amp; J(2,3,5)</div>
+</div>
+<div class="space-y-2">
+<div class="instruction-j bg-surface-container-low p-3 flex justify-between items-center rounded-r">
+<code class="font-code-instruction text-code-instruction">J(2, 3, 5)</code>
+<span class="font-label-sm text-label-sm text-on-surface-variant italic">Jump to end if R2=R3</span>
+</div>
+<div class="instruction-s bg-surface-container-low p-3 flex justify-between items-center rounded-r">
+<code class="font-code-instruction text-code-instruction">S(1)</code>
+<span class="font-label-sm text-label-sm text-on-surface-variant italic">Increment R1</span>
+</div>
+<div class="instruction-s bg-surface-container-low p-3 flex justify-between items-center rounded-r">
+<code class="font-code-instruction text-code-instruction">S(3)</code>
+<span class="font-label-sm text-label-sm text-on-surface-variant italic">Increment Counter R3</span>
+</div>
+<div class="instruction-j bg-surface-container-low p-3 flex justify-between items-center rounded-r">
+<code class="font-code-instruction text-code-instruction">J(1, 1, 1)</code>
+<span class="font-label-sm text-label-sm text-on-surface-variant italic">Loop back</span>
+</div>
+</div>
+</div>
+<div class="px-8 py-4 bg-surface-container-highest/30 flex gap-4">
+<button class="text-secondary font-label-sm text-label-sm hover:underline">Run Simulation</button>
+<button class="text-on-surface-variant font-label-sm text-label-sm hover:underline">Copy Code</button>
+</div>
+</div>
+<!-- Diagram Section -->
+<div class="space-y-8">
+<div class="bg-white p-8 rounded-xl border border-outline-variant custom-shadow">
+<h4 class="font-headline-md text-headline-md mb-6">Como os dados se movem?</h4>
+<div class="relative overflow-hidden rounded-lg">
+<img class="w-full h-48 object-cover rounded-lg opacity-20" data-alt="A clean, high-tech architectural diagram of computer memory architecture. The image uses a minimalist blueprint style with thin glowing cyan lines on a white and pale gray background. Data flow is represented by subtle light trails moving through a grid of registers. The overall mood is precise, academic, and modern corporate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN1Vnl2a9ABCp_mnUN0UVmFVuZqIFIHJWwss50RIzp64pCEYibKbUwUjoOVkuvTPLelhAIy79RmUEWRVbcvatng6Z7b1yfQdRrH6rdGSuP1GD_rYmFzoZc440RIJEwyGG1PTzjrGRiG8MHG972q8rlA7dCVUC5IhTSu2gOefDhYOXsuCuPEFY17tKYYRVqlzM7lRRkVrRctj26vLGnJZSUjxTEcAKRY2lUlWB3YFIIjpEawN0MfK_lbK05wUsEIcHAS9GApx2Vkjo"/>
+<div class="absolute inset-0 flex items-center justify-center p-6 bg-white/40 backdrop-blur-[2px]">
+<div class="grid grid-cols-2 gap-8 w-full">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm">Successor Operation</span>
+</div>
+<p class="text-xs text-on-surface-variant">The S(n) instruction adds 1 to register n. It never fails and always proceeds to the next line.</p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<span class="font-label-sm text-label-sm">Jump Logic</span>
+</div>
+<p class="text-xs text-on-surface-variant">J(m, n, q) compares registers m and n. If equal, execution jumps to instruction q.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 space-y-4">
+<h5 class="font-label-sm text-label-sm text-primary uppercase tracking-tighter">Quick Tips</h5>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Always initialize counter registers to Zero before starting a loop.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Use R0 as a dedicated output register to follow academic conventions.</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- Multiplication Teaser -->
+<div class="bg-inverse-surface text-inverse-on-surface p-6 rounded-xl flex items-center justify-between group cursor-pointer overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md mb-1">Coming Next: Multiplication</h4>
+<p class="text-surface-variant font-body-md text-sm">Learn nested loops and complex state management.</p>
+</div>
+<div class="bg-secondary-fixed text-on-secondary-fixed p-3 rounded-full group-hover:scale-110 transition-transform relative z-10">
+<span class="material-symbols-outlined">lock_open</span>
+</div>
+<!-- Background decorative glow -->
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="bg-surface-container-high rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant">
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md">Pronto para colocar em prática?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Experimente o editor avançado com verificação de sintaxe em tempo real.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-lg border border-secondary text-secondary font-label-sm text-label-sm hover:bg-white transition-colors">Watch Video</button>
+<button class="px-8 py-3 rounded-lg bg-secondary text-white font-label-sm text-label-sm hover:brightness-110 transition-all shadow-lg shadow-secondary/20">Go to Editor</button>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Micro-interaction: Hover effects on diagrams
+        document.querySelectorAll('.instruction-j, .instruction-s').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateX(8px)';
+                item.style.transition = 'transform 0.2s ease-out';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Simple scale interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.96)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+<script src="http://127.0.0.1:3001/socket.io/socket.io.js"></script>
+<script src="./configs/sockets/notifications.js"></script>
+</body></html>

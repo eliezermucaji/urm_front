@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>URM Studio | Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Use Tailwind Config from Design System -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e2e2e2",
+                    "on-tertiary-container": "#747676",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#d8e3fb",
+                    "surface-dim": "#cfdaf2",
+                    "on-primary-fixed": "#1a1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "surface-tint": "#5d5f5f",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "primary-container": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d8e3fb",
+                    "outline-variant": "#c4c7c8",
+                    "secondary-container": "#3ee5fe",
+                    "background": "#f9f9ff",
+                    "on-surface": "#111c2d",
+                    "on-secondary-fixed": "#001f24",
+                    "secondary-fixed": "#9eefff",
+                    "secondary-fixed-dim": "#28d9f3",
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-primary-container": "#747676",
+                    "inverse-primary": "#c6c6c7",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "primary": "#5d5f5f",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#e2e2e2",
+                    "secondary": "#006876",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-container-low": "#f0f3ff",
+                    "tertiary": "#5d5f5f",
+                    "on-primary-fixed-variant": "#454747",
+                    "inverse-surface": "#263143",
+                    "surface-container-high": "#dee8ff",
+                    "on-background": "#111c2d",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#006370",
+                    "surface-bright": "#f9f9ff",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "surface": "#f9f9ff",
+                    "on-secondary": "#ffffff",
+                    "outline": "#747878"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sidebar-width": "260px",
+                    "gutter": "16px",
+                    "card-gap": "12px",
+                    "canvas-padding": "32px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "code-instruction": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "register-value": ["JetBrains Mono"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "code-instruction": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "register-value": ["20px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active-indicator::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #00CFE8;
+        }
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Editor Styles */
+        .editor-container {
+            position: relative;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        #code-input, #code-highlight {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            margin: 0;
+            border: 0;
+            white-space: pre;
+            overflow-wrap: normal;
+            overflow-x: auto;
+            tab-size: 4;
+        }
+        #code-input {
+            z-index: 1;
+            background: transparent;
+            color: transparent;
+            caret-color: #111c2d;
+            resize: none;
+            outline: none;
+        }
+        #code-highlight {
+            z-index: 0;
+            pointer-events: none;
+            color: #444748;
+        }
+        .syntax-instr { color: #006876; font-weight: 700; }
+        .syntax-args { color: #444748; }
+        .line-numbers {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* URM Instruction Specific Styles */
+        .instr-z { border-left: 3px solid #F59E0B; padding-left: 4px; }
+        .instr-s { border-left: 3px solid #10B981; padding-left: 4px; }
+        .instr-t { border-left: 3px solid #3B82F6; padding-left: 4px; }
+        .instr-j { border-left: 3px solid #8B5CF6; padding-left: 4px; }
+
+        /* Active execution line highlight */
+        .line-active {
+            background-color: rgba(0, 207, 232, 0.16);
+            outline: 1px solid rgba(0, 104, 118, 0.35);
+            border-radius: 3px;
+        }
+        .line-num-active {
+            color: #006876 !important;
+            font-weight: 700;
+        }
+        .line-error {
+            background-color: rgba(186, 26, 26, 0.12);
+            outline: 1px solid rgba(186, 26, 26, 0.4);
+            border-radius: 3px;
+        }
+
+        /* Register card transitions */
+        .reg-card {
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+        }
+        .reg-card.flash {
+            animation: regFlash 0.6s ease;
+        }
+        @keyframes regFlash {
+            0% { background-color: #3ee5fe33; }
+            100% { background-color: transparent; }
+        }
+
+        /* Log entries */
+        .log-entry {
+            animation: logIn 0.2s ease;
+        }
+        @keyframes logIn {
+            from { opacity: 0; transform: translateY(2px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Disabled control */
+        .ctrl-disabled {
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #c4c7c8; border-radius: 9999px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+
+        @keyframes haltPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.45; }
+        }
+        .halt-pulse { animation: haltPulse 1.4s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-hidden">
+<!-- SIDEBAR -->
+<aside class="fixed left-0 top-0 h-full w-[260px] z-40 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant dark:border-outline shadow-sm flex flex-col py-canvas-padding">
+<div class="px-gutter mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface leading-none">URM Studio</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70">Scholar-Architect</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg relative bg-surface-container dark:bg-surface-container-highest text-on-surface dark:text-inverse-on-surface border-l-4 border-secondary-container sidebar-active-indicator" href="#">
+<span class="material-symbols-outlined" data-icon="code" style="font-variation-settings: 'FILL' 1;">code</span>
+<span class="font-label-sm text-label-sm font-semibold">Editor</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-sm text-label-sm">Education</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
+<span class="font-label-sm text-label-sm">Comparison</span>
+</a>
+</nav>
+<div class="mt-auto px-4 space-y-1">
+<button id="btn-new-sim" class="w-full mb-4 bg-secondary text-on-secondary py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+            New Simulation
+        </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</div>
+</aside>
+<!-- TOP BAR -->
+<header class="fixed top-0 right-0 left-[260px] h-16 z-30 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant dark:border-outline flex justify-between items-center px-gutter w-full">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-1.5 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input id="search-input" class="bg-transparent border-none outline-none text-body-md w-64" placeholder="Search functions..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span id="status-badge" class="px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline-variant" id="status-dot"></span>
+<span id="status-text">Idle</span>
+</span>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="ml-[260px] mt-16 p-gutter h-[calc(100vh-64px)] grid grid-cols-12 gap-gutter overflow-hidden">
+<!-- Left Pane: Interactive Editor -->
+<section class="col-span-5 bg-surface-container-lowest rounded-xl border border-outline-variant flex flex-col overflow-hidden shadow-sm">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="terminal">terminal</span>
+<span class="font-headline-md text-[16px] font-bold">URM Code Editor</span>
+</div>
+<div class="flex gap-2 items-center">
+<select id="example-select" class="px-2 py-1 rounded bg-white border border-outline-variant text-[11px] font-label-sm text-on-surface-variant outline-none cursor-pointer">
+<option value="multiply">multiply.urm</option>
+<option value="add">add.urm</option>
+<option value="subtract">subtract.urm</option>
+<option value="copy">copy.urm</option>
+</select>
+<span class="px-2 py-1 rounded bg-secondary-container/20 text-secondary text-[10px] font-bold uppercase tracking-wider">Interactive</span>
+</div>
+</div>
+<div class="flex-1 flex overflow-hidden">
+<!-- Line Numbers -->
+<div class="w-12 bg-surface-container-low flex flex-col items-center pt-4 text-on-surface-variant/40 select-none font-code-instruction text-[14px] leading-5 border-r border-outline-variant/30 overflow-hidden line-numbers" id="line-numbers">
+<span>1</span>
+</div>
+<!-- Editor Viewport -->
+<div class="flex-1 relative editor-container overflow-hidden">
+<div id="code-highlight"></div>
+<textarea autocapitalize="off" autocomplete="off" autocorrect="off" id="code-input" spellcheck="false">; multiply.urm — R0 := R1 * R2 (preserva R1 e R2)
+; R3 = contador externo (copia de R2) ; R4 = contador interno (copia de R1)
+; R5,R6 e R7,R8 = pares auxiliares do predecessor ; R9 = constante zero (nunca escrito)
+Z(0)
+T(2, 3)
+J(3, 9, 23)
+T(1, 4)
+J(4, 9, 15)
+S(0)
+Z(5)
+Z(6)
+J(4, 6, 13)
+T(6, 5)
+S(6)
+J(9, 9, 9)
+T(5, 4)
+J(9, 9, 5)
+Z(7)
+Z(8)
+J(3, 8, 21)
+T(8, 7)
+S(8)
+J(9, 9, 17)
+T(7, 3)
+J(9, 9, 3)
+T(0, 0)</textarea>
+</div>
+</div>
+<!-- Editor Footer: Errors & Initial Registers -->
+<div class="border-t border-outline-variant bg-surface-container-low px-4 py-2.5 flex items-center justify-between gap-3">
+<div id="parse-status" class="flex items-center gap-1.5 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Programa válido — 23 instruções</span>
+</div>
+<button id="btn-edit-registers" class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Definir registos iniciais</span>
+</button>
+</div>
+</section>
+<!-- Right Pane: Visualization & Log -->
+<section class="col-span-7 flex flex-col gap-gutter overflow-hidden">
+<!-- Register Visualization -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 shadow-sm flex-1 overflow-y-auto">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-[18px] font-bold">Register Grid</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span class="text-label-sm font-label-sm">Active</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<span class="text-label-sm font-label-sm">Idle</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-card-gap" id="register-grid">
+<!-- Generated dynamically -->
+</div>
+<div class="mt-8 grid grid-cols-2 gap-card-gap">
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant flex flex-col justify-between">
+<div class="text-on-surface-variant font-label-sm text-label-sm mb-4">COMPUTATIONAL STEPS</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-[32px] leading-none" id="stat-steps">0</span>
+<span class="text-secondary font-bold text-label-sm" id="stat-steps-delta">&nbsp;</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant">
+<div class="text-on-surface-variant font-label-sm text-label-sm mb-4">MEMORY UTILIZATION</div>
+<div class="w-full bg-outline-variant/30 h-2 rounded-full mt-2">
+<div class="bg-secondary h-2 rounded-full transition-all duration-300" id="mem-bar" style="width: 0%"></div>
+</div>
+<div class="mt-2 text-right font-register-value text-[14px]" id="mem-pct">0%</div>
+</div>
+</div>
+</div>
+<!-- Execution Log -->
+<div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-4 h-48 border border-outline flex flex-col overflow-hidden shadow-lg">
+<div class="flex items-center justify-between mb-2 border-b border-outline/30 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-sm" data-icon="history">history</span>
+<span class="font-label-sm text-[11px] uppercase tracking-widest text-surface-variant">Execution Log</span>
+</div>
+<button id="btn-clear-log" class="text-surface-variant/60 hover:text-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto font-code-instruction text-[12px] space-y-1 text-surface-variant" id="execution-log">
+<div class="flex gap-4 log-entry"><span class="text-secondary-fixed">--:--:--</span><span class="text-inverse-on-surface">Pronto. Carregue em ▶ para iniciar a simulação.</span></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Execution Controls Bar -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 glass-effect border border-outline-variant rounded-full shadow-2xl px-6 py-3 flex items-center gap-6 z-50">
+<div class="flex items-center gap-2 border-r border-outline-variant pr-6">
+<button id="btn-restart" title="Reiniciar para o início" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="keyboard_double_arrow_left">keyboard_double_arrow_left</span>
+</button>
+<button id="btn-step-back" title="Recuar um passo" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+</div>
+<div class="flex items-center gap-4">
+<button id="btn-play" title="Executar" class="w-14 h-14 flex items-center justify-center rounded-full bg-secondary text-on-secondary shadow-lg hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[32px]" id="play-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button id="btn-pause" title="Pausar" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant border border-outline-variant hover:bg-surface-container-high transition-colors ctrl-disabled">
+<span class="material-symbols-outlined" data-icon="pause">pause</span>
+</button>
+<button id="btn-stop" title="Parar" class="w-10 h-10 flex items-center justify-center rounded-full text-error border border-error/30 hover:bg-error-container/30 transition-colors">
+<span class="material-symbols-outlined" data-icon="stop" style="font-variation-settings: 'FILL' 1;">stop</span>
+</button>
+</div>
+<div class="flex items-center gap-2 border-l border-outline-variant pl-6">
+<button id="btn-step-fwd" title="Avançar um passo" class="w-10 h-10 flex items-center justify-center rounded-full text-secondary hover:bg-secondary-container/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+<button id="btn-skip-end" title="Saltar para o fim" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="keyboard_double_arrow_right">keyboard_double_arrow_right</span>
+</button>
+</div>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-6">
+<span class="text-label-sm font-label-sm text-on-surface-variant">SPEED</span>
+<input id="speed-slider" class="w-24 accent-secondary h-1.5 bg-surface-container-high rounded-full appearance-none cursor-pointer" type="range" min="1" max="20" step="1" value="8"/>
+<span class="text-label-sm font-label-sm font-bold w-8 text-secondary" id="speed-label">1.0x</span>
+</div>
+</div>
+
+<!-- Initial Registers Modal -->
+<div id="registers-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-on-surface/40 backdrop-blur-sm">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-2xl w-[420px] max-h-[70vh] flex flex-col overflow-hidden">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<span class="font-headline-md text-[16px] font-bold">Registos iniciais</span>
+<button id="btn-close-modal" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="p-4 overflow-y-auto flex-1">
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-3">Defina o valor de partida de cada registo (R1, R2, ...). Separe pares "registo=valor" por vírgulas — ex: <span class="font-code-instruction">1=12, 2=5</span></p>
+<input id="initial-registers-input" type="text" placeholder="1=12, 2=5" class="w-full px-3 py-2 rounded-lg border border-outline-variant outline-none focus:border-secondary font-code-instruction text-[13px]"/>
+<p class="text-[11px] text-on-surface-variant/70 mt-2">Registos não especificados começam em 0. Todos os registos referenciados no código são incluídos automaticamente na grelha.</p>
+</div>
+<div class="p-4 border-t border-outline-variant flex justify-end gap-2 bg-surface-container-low">
+<button id="btn-cancel-registers" class="px-4 py-2 rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">Cancelar</button>
+<button id="btn-apply-registers" class="px-4 py-2 rounded-lg text-label-sm font-label-sm bg-secondary text-on-secondary hover:opacity-90 transition-opacity">Aplicar e reiniciar</button>
+</div>
+</div>
+</div>
+
+<script src="./configs/controllers/urm_compiler.js"></script>
+<script src="http://127.0.0.1:3001/socket.io/socket.io.js"></script>
+<script src="./configs/sockets/notifications.js"></script>
+</body></html>

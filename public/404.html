@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>404 - URM Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#d8e3fb",
+                    "surface-dim": "#cfdaf2",
+                    "on-primary-container": "#747676",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#5d5f5f",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "outline": "#747878",
+                    "on-primary-fixed": "#1a1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#dee8ff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001f24",
+                    "surface-bright": "#f9f9ff",
+                    "on-surface-variant": "#444748",
+                    "on-background": "#111c2d",
+                    "inverse-on-surface": "#ecf1ff",
+                    "error": "#ba1a1a",
+                    "surface-container": "#e7eeff",
+                    "outline-variant": "#c4c7c8",
+                    "surface-tint": "#5d5f5f",
+                    "on-primary-fixed-variant": "#454747",
+                    "tertiary-fixed": "#e2e2e2",
+                    "secondary": "#006876",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "primary-container": "#ffffff",
+                    "secondary-fixed-dim": "#28d9f3",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#006370",
+                    "surface-container-low": "#f0f3ff",
+                    "tertiary-container": "#ffffff",
+                    "secondary-container": "#3ee5fe",
+                    "inverse-primary": "#c6c6c7",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "background": "#f9f9ff",
+                    "secondary-fixed": "#9eefff",
+                    "on-surface": "#111c2d",
+                    "inverse-surface": "#263143",
+                    "on-secondary-fixed-variant": "#004e59",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#5d5f5f",
+                    "surface-variant": "#d8e3fb",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "primary-fixed": "#e2e2e2",
+                    "on-tertiary-container": "#747676"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sidebar-width": "260px",
+                    "card-gap": "12px",
+                    "canvas-padding": "32px",
+                    "base": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "register-value": ["JetBrains Mono"],
+                    "code-instruction": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "register-value": ["20px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "code-instruction": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        /* Floating animation for the 404 graphic */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .instruction-line {
+            border-left-width: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[260px] z-40 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant dark:border-outline shadow-sm flex flex-col py-canvas-padding">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface">URM Studio</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Scholar-Architect</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high group" href="#">
+<span class="material-symbols-outlined group-hover:text-secondary">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high group" href="#">
+<span class="material-symbols-outlined group-hover:text-secondary">code</span>
+<span class="font-label-sm text-label-sm">Editor</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high group" href="#">
+<span class="material-symbols-outlined group-hover:text-secondary">school</span>
+<span class="font-label-sm text-label-sm">Education</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high group" href="#">
+<span class="material-symbols-outlined group-hover:text-secondary">compare_arrows</span>
+<span class="font-label-sm text-label-sm">Comparison</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1 pt-6 border-t border-outline-variant/30">
+<button class="w-full mb-6 bg-secondary text-white py-3 px-4 rounded-lg font-label-sm text-label-sm hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Simulation
+            </button>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high group" href="#">
+<span class="material-symbols-outlined group-hover:text-secondary">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high group" href="#">
+<span class="material-symbols-outlined group-hover:text-secondary">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-[260px] h-16 z-30 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant dark:border-outline flex justify-between items-center px-gutter w-full">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-on-surface placeholder:text-on-surface-variant/50 focus:ring-2 focus:ring-secondary/20 text-body-sm transition-shadow" placeholder="Procurar simulações ou registros..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<button class="bg-secondary/10 text-secondary hover:bg-secondary/20 px-4 py-2 rounded-lg font-label-sm text-label-sm transition-all">
+                New Program
+            </button>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional close-up portrait of a scholar-architect in a bright, modern studio. The lighting is soft and natural, emphasizing a calm and intellectual mood. The person wears minimalist academic attire, reflecting the professional and rigorous identity of URM Studio. The background is slightly blurred with hints of architectural sketches and clean wooden textures, maintaining a high-end corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfldH2r8tgbBmcjntkBzH7sd-yMXWJiFnNZfPV1AOScJgfMgBoQ2TBi81ji_oJKCpGRvQICLcUNjC9a-adudZplzQrJSBbX4kce9B6PZ7flq9c85QSZuLMOdAej9BqFk84QDlQI8dhz67fzITvzT8YQge8ScipN415AVAM17IZ4PBjxd8C1Axzj4Y1emButWNs5YAus6_nDuvsFq2Nix3KQposSdEcvBxGyDvGzKpHxYlHpLmt6nM72ENWl-z6yrNUtn0bkWSWxhg"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen flex flex-col items-center justify-center p-canvas-padding bg-surface">
+<!-- 404 Visual Content Section -->
+<div class="max-w-3xl w-full flex flex-col items-center text-center space-y-8">
+<!-- Abstract Error Representation -->
+<div class="relative w-64 h-64 mb-4 flex items-center justify-center animate-float">
+<!-- Register Card Error Representation -->
+<div class="absolute inset-0 bg-white border-2 border-outline-variant rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col p-6 items-center justify-center">
+<div class="absolute top-4 left-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest opacity-50">Register [R?]</div>
+<div class="text-error mb-4">
+<span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'wght' 200;">scan_delete</span>
+</div>
+<div class="font-register-value text-register-value text-on-surface-variant opacity-20 select-none">
+                        0xNULL
+                    </div>
+</div>
+<!-- Floating Code Fragments -->
+<div class="absolute -top-6 -right-12 bg-surface-container-highest p-3 rounded-lg border border-outline-variant shadow-sm rotate-6 instruction-line border-l-error">
+<code class="font-code-instruction text-code-instruction text-on-surface-variant">J(1, 1, 404)</code>
+</div>
+<div class="absolute -bottom-4 -left-16 bg-surface-container-highest p-3 rounded-lg border border-outline-variant shadow-sm -rotate-3 instruction-line border-l-secondary">
+<code class="font-code-instruction text-code-instruction text-on-surface-variant">S(R1) -&gt; ?</code>
+</div>
+</div>
+<!-- Text Content -->
+<div class="space-y-4">
+<h2 class="font-display-lg text-display-lg text-on-surface">404 - Página não encontrada</h2>
+<p class="max-w-lg mx-auto font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    O caminho de computação solicitado não existe ou o registro foi limpo da memória. <br/>
+                    Certifique-se de que o endereço está correto ou retorne à arquitetura principal.
+                </p>
+</div>
+<!-- CTA Section -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="px-8 py-4 bg-secondary text-white rounded-lg font-headline-md text-headline-md font-bold shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">home</span>
+                    Voltar ao Dashboard
+                </a>
+<button class="px-8 py-4 bg-transparent border border-outline-variant text-on-surface-variant rounded-lg font-headline-md text-headline-md font-semibold hover:bg-surface-container-low transition-all" onclick="window.history.back()">
+                    Página Anterior
+                </button>
+</div>
+<!-- Terminal-like subtle footer -->
+<div class="mt-20 pt-10 w-full border-t border-outline-variant/30">
+<div class="flex justify-center items-center gap-6 text-on-surface-variant/40 font-code-instruction text-[12px] uppercase tracking-tighter">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> Error_Stack_Empty</span>
+<span>|</span>
+<span>Program_Counter: Undefined</span>
+<span>|</span>
+<span>Kernel: 0.14.4-STABLE</span>
+</div>
+</div>
+</div>
+</main>
+
+<script>
+        // Micro-interactions for the register cards
+        document.addEventListener('mousemove', (e) => {
+            const container = document.querySelector('.animate-float');
+            if (container) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 45;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 45;
+                container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+        });
+
+        // Simple reset on mouse leave
+        document.addEventListener('mouseleave', () => {
+            const container = document.querySelector('.animate-float');
+            if (container) {
+                container.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            }
+        });
+    </script>
+<script src="http://127.0.0.1:3001/socket.io/socket.io.js"></script>
+<script src="./configs/sockets/notifications.js"></script>
+</body></html>
